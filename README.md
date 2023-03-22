@@ -1,60 +1,41 @@
-# A Laravel package that encrypts one or more columns from a table and export them into CSV
+# Encrypt and Export
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/mrshoikot/encrypt-and-export.svg?style=flat-square)](https://packagist.org/packages/mrshoikot/encrypt-and-export)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mrshoikot/encrypt-and-export/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mrshoikot/encrypt-and-export/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/mrshoikot/encrypt-and-export/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/mrshoikot/encrypt-and-export/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/mrshoikot/encrypt-and-export.svg?style=flat-square)](https://packagist.org/packages/mrshoikot/encrypt-and-export)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+A Laravel package that encrypts one or more columns from a table and export them into CSV.
+## Environment
+This package was tested using `php 8.1` and `laravel 10.0`
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/encrypt-and-export.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/encrypt-and-export)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
+
+Include the repository in your `composer.json` file
+
+```json
+"repositories": [
+    {
+        "url": "https://github.com/mrshoikot/encrypt-and-export.git",
+        "type": "git"
+    }
+],
+```
 
 You can install the package via composer:
 
 ```bash
-composer require mrshoikot/encrypt-and-export
+composer require "mrshoikot/encrypt-and-export @dev"
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="encrypt-and-export-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="encrypt-and-export-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="encrypt-and-export-views"
-```
 
 ## Usage
+To export encrypted data into a CSV. You have to run
 
-```php
-$encryptAndExport = new Mrshoikot\EncryptAndExport();
-echo $encryptAndExport->echoPhrase('Hello, Mrshoikot!');
+```bash
+php artisan encrypt-and-export
 ```
+
+A prompt will ask you from which table you want to export the data and also ask you to choose the columns you want to encrypt.
+You'll also be asked the path where the exported CSV file should be stored. The default is the root directory of your project.
+
 
 ## Testing
 
