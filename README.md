@@ -8,21 +8,10 @@ This package was tested using `php 8.1` and `laravel 10.0`
 
 ## Installation
 
-Include the repository in your `composer.json` file
-
-```json
-"repositories": [
-    {
-        "url": "https://github.com/mrshoikot/encrypt-and-export.git",
-        "type": "git"
-    }
-],
-```
-
 You can install the package via composer:
 
 ```bash
-composer require "mrshoikot/encrypt-and-export @dev"
+composer require mrshoikot/encrypt-and-export:dev-main"
 ```
 
 
