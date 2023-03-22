@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "mrshoikot/encrypt-and-export",
+    "description": "A Laravel package that encrypts one or more columns from a table and export them into CSV",
     "keywords": [
-        ":vendor_name",
+        "mrshoikot",
         "laravel",
-        ":package_slug"
+        "encrypt-and-export"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/mrshoikot/encrypt-and-export",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Qurban Ali",
+            "email": "mrshoikot@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Mrshoikot\\EncryptAndExport\\": "src/",
+            "Mrshoikot\\EncryptAndExport\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Mrshoikot\\EncryptAndExport\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Mrshoikot\\EncryptAndExport\\EncryptAndExportServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "EncryptAndExport": "Mrshoikot\\EncryptAndExport\\Facades\\EncryptAndExport"
             }
         }
     },
