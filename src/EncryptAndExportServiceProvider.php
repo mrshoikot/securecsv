@@ -17,6 +17,7 @@ class EncryptAndExportServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('encrypt-and-export')
-            ->hasCommand(EncryptAndExportCommand::class);
+            ->hasCommand(EncryptAndExportCommand::class)
+            ->hasTranslations();
     }
 }
