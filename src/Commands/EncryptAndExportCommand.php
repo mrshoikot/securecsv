@@ -3,13 +3,12 @@
 namespace Mrshoikot\EncryptAndExport\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
 class EncryptAndExportCommand extends Command
 {
-    
     public $signature = 'encrypt-and-export';
 
     public $description;
@@ -26,7 +25,7 @@ class EncryptAndExportCommand extends Command
         $table = $this->ask(trans('encrypt-and-export::translations.q_table_name'));
 
         // Check if the table exists in the datbase
-        if (!Schema::hasTable($table)) {
+        if (! Schema::hasTable($table)) {
             $this->error("The table {$table} does not exist in the database.");
 
             return self::FAILURE;
@@ -64,14 +63,14 @@ class EncryptAndExportCommand extends Command
         }
 
         // Check if the export path is valid
-        if (!File::isDirectory($export_path)) {
+        if (! File::isDirectory($export_path)) {
             $this->error(trans('encrypt-and-export::translations.not_valid_dir', ['path' => $export_path]));
 
             return self::FAILURE;
         }
 
         // Check if the export path is writable
-        if (!File::isWritable($export_path)) {
+        if (! File::isWritable($export_path)) {
             $this->error(trans('encrypt-and-export::translations.not_writable', ['path' => $export_path]));
 
             return self::FAILURE;
@@ -82,19 +81,13 @@ class EncryptAndExportCommand extends Command
         return self::SUCCESS;
     }
 
-
     /**
      * Export the data to a CSV file
-     *
-     * @param string $table
-     * @param array $columns
-     * @param string $export_path
-     * @return void
      */
     protected function export(string $table, array $columns, string $export_path): void
     {
-        $file_name = $table . '_' . date('Y-m-d_H-i-s') . '.csv';
-        $file_path = $export_path . '/' . $file_name;
+        $file_name = $table.'_'.date('Y-m-d_H-i-s').'.csv';
+        $file_path = $export_path.'/'.$file_name;
 
         $this->info("Exporting the data to {$file_path}...");
 
@@ -121,13 +114,8 @@ class EncryptAndExportCommand extends Command
         $this->info(trans('encrypt-and-export::translations.exported', ['path' => $file_path]));
     }
 
-
     /**
      * Write the data to a CSV file
-     *
-     * @param array $data
-     * @param string $file_path
-     * @return void
      */
     protected function writeToCsv(array $data, string $file_path): void
     {
