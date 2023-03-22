@@ -2,9 +2,9 @@
 
 namespace Mrshoikot\EncryptAndExport;
 
+use Mrshoikot\EncryptAndExport\Commands\EncryptAndExportCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Mrshoikot\EncryptAndExport\Commands\EncryptAndExportCommand;
 
 class EncryptAndExportServiceProvider extends PackageServiceProvider
 {
