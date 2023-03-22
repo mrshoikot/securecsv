@@ -43,6 +43,11 @@ You'll also be asked the path where the exported CSV file should be stored. The 
 composer test
 ```
 
+## TODO
+- [ ] Implement API usability along with CLI
+- [ ] Write unit and more feature tests
+- [ ] Enable and test support for older versions of PHP and Laravel
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
