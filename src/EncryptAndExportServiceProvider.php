@@ -17,9 +17,6 @@ class EncryptAndExportServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('encrypt-and-export')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_encrypt-and-export_table')
             ->hasCommand(EncryptAndExportCommand::class);
     }
 }
