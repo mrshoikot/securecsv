@@ -1,44 +1,44 @@
 <?php
 
 namespace Mrshoikot\EncryptAndExport;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\File;
+
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 
 class EncryptAndExport
 {
     /**
      * The name of the table to export
-     * 
+     *
      * @var string
      */
     private $table;
 
     /**
      * The columns that are going to be encrypted
-     * 
+     *
      * @var array
      */
     private $selectedColumns;
 
     /**
      * The path where the CSV file will be exported
-     * 
+     *
      * @var string
      */
     private $path;
 
-
     /**
      * All the columns in the table
-     * 
+     *
      * @var array
      */
     public $allColumns;
 
     /**
      * Create a new instance of EncryptAndExport
-     * 
+     *
      * @return void
      */
     public function __construct()
@@ -49,15 +49,14 @@ class EncryptAndExport
         $this->path = storage_path('app');
     }
 
-
     /**
      * Set the table name
-     * 
-     * @param string $table
+     *
+     * @param  string  $table
      * @return void
      */
-    public function setTable($table){
-
+    public function setTable($table)
+    {
         // Check if the table exists in the database
         if (! Schema::hasTable($table)) {
             throw new \InvalidArgumentException("The table {$table} does not exist in the database.");
@@ -69,8 +68,8 @@ class EncryptAndExport
 
     /**
      * Select a column to encrypt
-     * 
-     * @param string $column
+     *
+     * @param  string  $column
      * @return void
      */
     public function selectColumn($column)
@@ -85,8 +84,8 @@ class EncryptAndExport
 
     /**
      * Set the path where the CSV file will be exported
-     * 
-     * @param string $path
+     *
+     * @param  string  $path
      * @return void
      */
     public function setPath($path)
@@ -106,8 +105,6 @@ class EncryptAndExport
 
     /**
      * Export the data to a CSV file
-     * 
-     * @return void
      */
     public function export(): void
     {
@@ -134,15 +131,10 @@ class EncryptAndExport
 
             $this->writeToCsv($data, $this->path);
         });
-
     }
 
     /**
      * Write the data to a CSV file
-     * 
-     * @param array $data
-     * @param string $file_path
-     * @return void
      */
     protected function writeToCsv(array $data, string $file_path): void
     {
@@ -154,6 +146,4 @@ class EncryptAndExport
 
         fclose($file);
     }
-
-    
 }

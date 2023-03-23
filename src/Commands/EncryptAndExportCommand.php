@@ -9,21 +9,21 @@ class EncryptAndExportCommand extends Command
 {
     /**
      * The name and signature of the console command.
-     * 
+     *
      * @var string
      */
     public $signature = 'encrypt-and-export';
 
     /**
      * The console command description.
-     * 
+     *
      * @var string
      */
     public $description;
 
     /**
      * Create a new command instance.
-     * 
+     *
      * @return void
      */
     public function __construct()
@@ -34,8 +34,6 @@ class EncryptAndExportCommand extends Command
 
     /**
      * Execute the console command.
-     * 
-     * @return int
      */
     public function handle(): int
     {
@@ -62,7 +60,7 @@ class EncryptAndExportCommand extends Command
 
         // Ask the user for the columns to encrypt
         $columnIndexesToEncrypt = $this->ask(trans('encrypt-and-export::translations.q_columns'));
-        
+
         // Convert the string to an array using space and comma as delimiters
         $columnIndexesToEncrypt = preg_split('/[\s,]+/', $columnIndexesToEncrypt);
         $selectedColumns = [];
@@ -83,7 +81,7 @@ class EncryptAndExportCommand extends Command
         $export_path = $this->ask(trans('encrypt-and-export::translations.q_export_path'));
 
         // Try to set the export path if the user inserted one
-        if (!empty($export_path)) {
+        if (! empty($export_path)) {
             try {
                 $exporter->setPath($export_path);
             } catch (\InvalidArgumentException $e) {
@@ -99,6 +97,4 @@ class EncryptAndExportCommand extends Command
 
         return self::SUCCESS;
     }
-
-    
 }
