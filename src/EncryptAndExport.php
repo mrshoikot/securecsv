@@ -93,7 +93,7 @@ class EncryptAndExport
     {
         // Check if the path is a directory
         if (! File::isDirectory($path)) {
-            throw new \InvalidArgumentException(trans('encrypt-and-export::translations.invalid_path'));
+            throw new \InvalidArgumentException(trans('encrypt-and-export::translations.not_valid_dir', ['path' => $path]));
         }
 
         // Check if the path is writable
