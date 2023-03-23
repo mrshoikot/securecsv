@@ -2,11 +2,11 @@
 
 namespace Mrshoikot\Scrud\Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Mrshoikot\EncryptAndExport\EncryptAndExport;
 use Mrshoikot\EncryptAndExport\EncryptAndExportServiceProvider;
 use Orchestra\Testbench\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\DB;
 
 class EncryptAndExportTest extends TestCase
 {
@@ -14,13 +14,11 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Set up the test.
-     * 
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         // Create dummy user
         DB::table('users')->insert([
             'name' => 'John Doe',
@@ -31,7 +29,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Get the package providers.
-     * 
+     *
      * @param  \Illuminate\Foundation\Application  $app
      * @return array
      */
@@ -44,7 +42,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Set the environment.
-     * 
+     *
      * @param  \Illuminate\Foundation\Application  $app
      * @return void
      */
@@ -65,7 +63,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Test if it can set the table name.
-     * 
+     *
      * @return void
      */
     public function test_it_can_set_the_table_name()
@@ -78,7 +76,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Test if it throws an exception if the table does not exist.
-     * 
+     *
      * @return void
      */
     public function test_it_throws_an_exception_if_table_does_not_exist()
@@ -91,7 +89,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Test if it can select a column to encrypt.
-     * 
+     *
      * @return void
      */
     public function test_it_can_select_a_column_to_encrypt()
@@ -105,7 +103,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Test if it throws an exception if the selected column does not exist.
-     * 
+     *
      * @return void
      */
     public function test_it_throws_an_exception_if_selected_column_does_not_exist()
@@ -119,7 +117,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Test if it can set the export path.
-     * 
+     *
      * @return void
      */
     public function test_it_can_set_the_export_path()
@@ -132,7 +130,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Test if it throws an exception if the export path is not a directory.
-     * 
+     *
      * @return void
      */
     public function test_it_throws_an_exception_if_export_path_is_not_a_directory()
@@ -145,7 +143,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Test if it throws an exception if the export path is not writable.
-     * 
+     *
      * @return void
      */
     public function test_it_throws_an_exception_if_export_path_is_not_writable()
@@ -160,7 +158,7 @@ class EncryptAndExportTest extends TestCase
 
     /**
      * Test if it can export the data to a CSV file.
-     * 
+     *
      * @return void
      */
     public function test_it_can_export_the_data_to_a_csv_file()
