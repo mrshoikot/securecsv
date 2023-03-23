@@ -116,8 +116,6 @@ class EncryptAndExport
 
     /**
      * Export the data to a CSV file
-     * 
-     * @return string
      */
     public function export(): string
     {
