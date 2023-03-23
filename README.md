@@ -45,9 +45,11 @@ composer test
 ```
 
 ## TODO
-- [ ] Implement API usability along with CLI
-- [ ] Write unit and more feature tests
+- [x] <del>Implement API usability along with CLI</del>
+- [x] <del>Write unit and more feature tests</del>
 - [ ] Enable and test support for older versions of PHP and Laravel
+- [ ] Include option for having CSV header
+- [ ] Add ability for selecting multiple column at once
 
 ## Changelog
 
