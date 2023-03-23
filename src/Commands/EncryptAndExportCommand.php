@@ -94,7 +94,7 @@ class EncryptAndExportCommand extends Command
         }
 
         // Finally, Export the data
-        $exporter->export($table, $selectedColumns, $export_path);
+        $exporter->export();
         $this->info(trans('encrypt-and-export::translations.exported', ['path' => $export_path]));
 
         return self::SUCCESS;
