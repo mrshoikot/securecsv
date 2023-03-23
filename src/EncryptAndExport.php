@@ -50,6 +50,17 @@ class EncryptAndExport
     }
 
     /**
+     * Get the value of a private property
+     *
+     * @param  string  $name
+     * @return mixed
+     */
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+
+    /**
      * Set the table name
      *
      * @param  string  $table
@@ -105,8 +116,10 @@ class EncryptAndExport
 
     /**
      * Export the data to a CSV file
+     * 
+     * @return string
      */
-    public function export(): void
+    public function export(): string
     {
         $file_name = $this->table.'_'.date('Y-m-d_H-i-s').'.csv';
         $this->path = $this->path.'/'.$file_name;
@@ -131,6 +144,8 @@ class EncryptAndExport
 
             $this->writeToCsv($data, $this->path);
         });
+
+        return $this->path;
     }
 
     /**
