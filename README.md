@@ -16,7 +16,19 @@ composer require mrshoikot/encrypt-and-export:dev-main"
 
 
 ## Usage
-To export encrypted data into a CSV. You have to run
+
+```php
+use Mrshoikot\EncryptAndExport\EncryptAndExport;
+
+$exporter = new EncryptAndExport();
+$exporter->setTable('TABLE_NAME');
+$exporter->selectColumn('COLUMN_1');
+$exporter->selectColumn('COLUMN_2');
+$exporter->setPath(storage_path('exports')); // Default is /storage/app
+$exporter->export();
+```
+
+To use the package from command line. You have to run
 
 ```bash
 php artisan encrypt-and-export
