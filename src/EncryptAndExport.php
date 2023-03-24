@@ -91,7 +91,7 @@ class EncryptAndExport
         }
 
         // Insert the columns to the selectedColumns array
-        foreach($columns as $column) {
+        foreach ($columns as $column) {
             // Check if the column exists in the table
             if (! in_array($column, $this->allColumns)) {
                 throw new \InvalidArgumentException(trans('encrypt-and-export::translations.invalid_column'));
