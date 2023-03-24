@@ -22,11 +22,12 @@ use Mrshoikot\EncryptAndExport\EncryptAndExport;
 
 $exporter = new EncryptAndExport();
 $exporter->setTable('TABLE_NAME');
-$exporter->selectColumn('COLUMN_1');
-$exporter->selectColumn('COLUMN_2');
+$exporter->selectColumn('COLUMN_NAME');
 $exporter->setPath(storage_path('exports')); // Default is /storage/app
 $exporter->export();
 ```
+
+The `selectColumn()` method also accepts array of column names.
 
 To use the package from command line. You have to run
 

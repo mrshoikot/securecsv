@@ -102,6 +102,20 @@ class EncryptAndExportTest extends TestCase
     }
 
     /**
+     * Test if it can select multiple column to encrypt.
+     *
+     * @return void
+     */
+    public function test_it_can_select_multiple_column_to_encrypt()
+    {
+        $encryptAndExport = new EncryptAndExport();
+        $encryptAndExport->setTable('users');
+        $encryptAndExport->selectColumn(['id', 'email']);
+
+        $this->assertSame(['id', 'email'], $encryptAndExport->selectedColumns);
+    }
+
+    /**
      * Test if it throws an exception if the selected column does not exist.
      *
      * @return void
@@ -113,6 +127,20 @@ class EncryptAndExportTest extends TestCase
         $encryptAndExport = new EncryptAndExport();
         $encryptAndExport->setTable('users');
         $encryptAndExport->selectColumn('non_existent_column');
+    }
+
+    /**
+     * Test if it throws an exception if the selected column does not exist.
+     *
+     * @return void
+     */
+    public function test_it_throws_an_exception_if_multiple_selected_columns_do_not_exist()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $encryptAndExport = new EncryptAndExport();
+        $encryptAndExport->setTable('users');
+        $encryptAndExport->selectColumn(['email', 'non_existent_column', 'non_existent_column_2']);
     }
 
     /**

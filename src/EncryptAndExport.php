@@ -80,17 +80,24 @@ class EncryptAndExport
     /**
      * Select a column to encrypt
      *
-     * @param  string  $column
+     * @param  string|array  $column
      * @return void
      */
-    public function selectColumn($column)
+    public function selectColumn($columns)
     {
-        // Check if the column exists in the table
-        if (! in_array($column, $this->allColumns)) {
-            throw new \InvalidArgumentException(trans('encrypt-and-export::translations.invalid_column'));
+        // Check if the column is not an array
+        if (! is_array($columns)) {
+            $columns = [$columns];
         }
 
-        $this->selectedColumns[] = $column;
+        // Insert the columns to the selectedColumns array
+        foreach($columns as $column) {
+            // Check if the column exists in the table
+            if (! in_array($column, $this->allColumns)) {
+                throw new \InvalidArgumentException(trans('encrypt-and-export::translations.invalid_column'));
+            }
+            $this->selectedColumns[] = $column;
+        }
     }
 
     /**
