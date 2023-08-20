@@ -1,4 +1,4 @@
-# Encrypt and Export
+# SecurCSV
 
 
 A Laravel package that encrypts one or more columns from a table and export them into CSV.
@@ -11,7 +11,7 @@ This package was tested using `php 8.1` and `laravel 10.0`
 You can install the package via composer:
 
 ```bash
-composer require mrshoikot/encrypt-and-export:dev-main"
+composer require mrshoikot/SecurCSV:dev-main"
 ```
 
 
