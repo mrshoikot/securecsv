@@ -26,7 +26,7 @@ class EncryptAndExportCommandTest extends TestCase
 
     public function testItAsksTheRightQuestions()
     {
-        $cmd = $this->artisan('encrypt-and-export')
-            ->expectsQuestion(trans('encrypt-and-export::translations.q_table_name'), 'users');
+        $cmd = $this->artisan('securecsv')
+            ->expectsQuestion(trans('securecsv::translations.q_table_name'), 'users');
     }
 }

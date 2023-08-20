@@ -1,3 +1,3 @@
 # Changelog
 
-All notable changes to `encrypt-and-export` will be documented in this file.
+All notable changes to `securecsv` will be documented in this file.

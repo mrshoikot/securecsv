@@ -94,7 +94,7 @@ class EncryptAndExport
         foreach ($columns as $column) {
             // Check if the column exists in the table
             if (! in_array($column, $this->allColumns)) {
-                throw new \InvalidArgumentException(trans('encrypt-and-export::translations.invalid_column'));
+                throw new \InvalidArgumentException(trans('securecsv::translations.invalid_column'));
             }
             $this->selectedColumns[] = $column;
         }
@@ -110,12 +110,12 @@ class EncryptAndExport
     {
         // Check if the path is a directory
         if (! File::isDirectory($path)) {
-            throw new \InvalidArgumentException(trans('encrypt-and-export::translations.not_valid_dir', ['path' => $path]));
+            throw new \InvalidArgumentException(trans('securecsv::translations.not_valid_dir', ['path' => $path]));
         }
 
         // Check if the path is writable
         if (! File::isWritable($path)) {
-            throw new \InvalidArgumentException(trans('encrypt-and-export::translations.not_writable', ['path' => $path]));
+            throw new \InvalidArgumentException(trans('securecsv::translations.not_writable', ['path' => $path]));
         }
 
         $this->path = $path;

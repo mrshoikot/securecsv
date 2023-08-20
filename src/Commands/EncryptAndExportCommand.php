@@ -12,7 +12,7 @@ class EncryptAndExportCommand extends Command
      *
      * @var string
      */
-    public $signature = 'encrypt-and-export';
+    public $signature = 'securecsv';
 
     /**
      * The console command description.
@@ -29,7 +29,7 @@ class EncryptAndExportCommand extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->description = trans('encrypt-and-export::description');
+        $this->description = trans('securecsv::description');
     }
 
     /**
@@ -40,7 +40,7 @@ class EncryptAndExportCommand extends Command
         $exporter = new EncryptAndExport();
 
         // Ask the user for the table name
-        $table = $this->ask(trans('encrypt-and-export::translations.q_table_name'));
+        $table = $this->ask(trans('securecsv::translations.q_table_name'));
 
         // Try to set the table name
         try {
@@ -52,14 +52,14 @@ class EncryptAndExportCommand extends Command
         }
 
         // Display the columns in the table
-        $this->info(trans('encrypt-and-export::translations.column_list', ['table' => $table]));
+        $this->info(trans('securecsv::translations.column_list', ['table' => $table]));
 
         foreach ($exporter->allColumns as $key => $column) {
             $this->info("[$key]: $column");
         }
 
         // Ask the user for the columns to encrypt
-        $columnIndexesToEncrypt = $this->ask(trans('encrypt-and-export::translations.q_columns'));
+        $columnIndexesToEncrypt = $this->ask(trans('securecsv::translations.q_columns'));
 
         // Convert the string to an array using space and comma as delimiters
         $columnIndexesToEncrypt = preg_split('/[\s,]+/', $columnIndexesToEncrypt);
@@ -78,7 +78,7 @@ class EncryptAndExportCommand extends Command
         }
 
         // Ask the user for the export path
-        $export_path = $this->ask(trans('encrypt-and-export::translations.q_export_path'));
+        $export_path = $this->ask(trans('securecsv::translations.q_export_path'));
 
         // Try to set the export path if the user inserted one
         if (! empty($export_path)) {
@@ -93,7 +93,7 @@ class EncryptAndExportCommand extends Command
 
         // Finally, Export the data
         $exporter->export();
-        $this->info(trans('encrypt-and-export::translations.exported', ['path' => $export_path]));
+        $this->info(trans('securecsv::translations.exported', ['path' => $export_path]));
 
         return self::SUCCESS;
     }

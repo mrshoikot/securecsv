@@ -16,7 +16,7 @@ class EncryptAndExportServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('encrypt-and-export')
+            ->name('securecsv')
             ->hasCommand(EncryptAndExportCommand::class)
             ->hasTranslations();
     }

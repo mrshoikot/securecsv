@@ -1,4 +1,4 @@
-# SecurCSV
+# securecsv
 
 
 A Laravel package that encrypts one or more columns from a table and export them into CSV.
@@ -11,7 +11,7 @@ This package was tested using `php 8.1` and `laravel 10.0`
 You can install the package via composer:
 
 ```bash
-composer require mrshoikot/SecurCSV:dev-main"
+composer require mrshoikot/securecsv:dev-main"
 ```
 
 
@@ -32,7 +32,7 @@ The `selectColumn()` method also accepts array of column names.
 To use the package from command line. You have to run
 
 ```bash
-php artisan encrypt-and-export
+php artisan securecsv
 ```
 
 A prompt will ask you from which table you want to export the data and also ask you to choose the columns you want to encrypt.
